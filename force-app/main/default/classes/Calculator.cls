@@ -20,6 +20,7 @@ public  class Calculator {
     }
     public integer add ( integer a, integer b){
         integer sum=a+b;
+        integer sum1=a-b;
         return sum;
 
 
