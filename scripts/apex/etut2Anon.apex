@@ -1,0 +1,1 @@
+etut2.generalMethod();
