@@ -63,6 +63,35 @@ public  class AccConAndOppOperations1 {
 
         
     }
+    public static void accNoCon() {
+        List<Account> accList1= [ select id, name from Account where id  not IN (select accountId from Contact )];
+        System.debug(' acclist1 '+ accList1);
+        //List<Contact> conList=[ select id, name from Contact where AccountId=null ];
+        list<Contact> conCh= new list<Contact>();
+        for(account acc: accList1){
+
+            contact con = new contact();
+            con.AccountId= acc.Id;
+            con.LastName=acc.name;
+            conCh.add(con);
+            system.debug('con is ==>'+con);
+        } 
+         if( !conCh.isEmpty()){
+            insert conCh;
+            
+
+            
+         }
+        
+    }
+    public static void oppLess() {
+        List<Opportunity> opp1=[ select id, name, amount from Opportunity where Amount< 20000 and StageName='Closed Lost'];
+        System.debug('opp1'+ opp1);
+        delete opp1;
+        
+    }
+
+    
 
 
    
