@@ -1,5 +1,15 @@
 trigger CaseTrigger on Case (before insert,before update, after insert, after update) {
-    System.debug('We are in the trigger');
+   // if(trigger.isBefore&& trigger.isUpdate){
+    CaseHandler2.caseOrigin(trigger.New);
+
+
+
+
+
+
+        
+    }
+    
 
 
  /*   if(trigger.isAfter){
@@ -23,7 +33,7 @@ trigger CaseTrigger on Case (before insert,before update, after insert, after up
             }
     }
 */
-            list<case> listCs = trigger.new;
+           /*list<case> listCs = trigger.new;
             if(trigger.isAfter&& trigger.isInsert){
                 for(case eachCase : listCs){
                     system.debug(eachCase.CaseNumber+ ' was created with id '+' on '+ eachCase.Id+ eachCase.CreatedDate);
@@ -49,5 +59,5 @@ trigger CaseTrigger on Case (before insert,before update, after insert, after up
 
             }
 
-    }
+    }*/
 
