@@ -8,6 +8,19 @@ public  class CaseHandler2 {
                     eachCase.Status='New';
                     eachCase.Priority='Medium';
                 }
+
+
+    public static void caseParent() {
+
+        set<id> caseId = new set<id>();
+        for( case cs : trigger.new){
+            if( cs.Description.containsignorecase('password')){
+                
+            }
+        }
+
+        
+    }            
                 
 
 

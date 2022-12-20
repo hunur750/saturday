@@ -15,9 +15,19 @@ public class ContactTriggerHandler {
             for (Contact eachContact : conTriggerNew) {
                     if (eachContact.LeadSource != conTriggerOldMap.get(eachContact.Id).LeadSource) {
                             eachContact.LeadSource.addError('Cannot Update LEAD SOURCE. Please user, behave!');
-}   
-    }
+                    }   
+            }
 
    
-}
+        }
+        //2. When a new contact is created for an existing account then set contact other phone as account
+        //phone
+        public static void contactSecondPhone() {
+            
+        }
+
+
+
+
+
 }

@@ -1,15 +1,35 @@
 trigger AccountTrigger on Account (before insert, before update, after insert, after update ) {
 
 
+if(trigger.isAfter&& trigger.isUpdate){
+  AccountBillingCityHandler.updateBillCity(trigger.new  , trigger.old, trigger.newMap, trigger.oldMap);
+
+}
+
+if
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
   
-if (Trigger.isAfter && Trigger.isUpdate) {
+/*if (Trigger.isAfter && Trigger.isUpdate) {
   //call method to update VIP fields of all contacts.
   AccountTriggerHandler.updateVIPforContacts(trigger.new,trigger.old, trigger.newMap, trigger.oldMap);
 
 
 }
 }
-/*if( trigger.isAfter&& trigger.isInsert){
+if( trigger.isAfter&& trigger.isInsert){
   List<Contact> conList= new List<Contact>();
   for( Account acc: trigger.new){
     for( integer i=1; i<=7;i++){
