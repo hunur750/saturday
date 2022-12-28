@@ -31,5 +31,18 @@ public  class SaleProTriggerHandler {
             sp.Status__c.addError('Cannot complete project because all tickets are not completed. Go away now');
         }
     }
+   /* @future
+    public static void updateProjectDescription() {
+         system.debug('inside future method. okay?');
+    }
+    */
+    @future
+    private static void updateProjectDescription(set<id> spIds) {
+        List<Salesforce_Project__c> allSp=[select Id, description__c from Salesforce_Project__c where id in: spIds ];
+        for( Salesforce_Project__c eachSP: allSp){
+            eachSP.description__c +=' . Updated from future';
+        }
+        update allSp;
+    }
  
 }
