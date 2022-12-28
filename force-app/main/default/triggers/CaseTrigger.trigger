@@ -1,8 +1,7 @@
 trigger CaseTrigger on Case (before insert,before update, after insert, after update) {
-   // if(trigger.isBefore&& trigger.isUpdate){
-    CaseHandler2.caseOrigin(trigger.New);
-
-
+    if (Trigger.isAfter && Trigger.isInsert) {
+        CaseTriggerHandler.createChildCase(trigger.new);
+    }
 
 
 

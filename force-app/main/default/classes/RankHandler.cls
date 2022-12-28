@@ -9,7 +9,7 @@ public class RankHandler {
         } else if (rank == 3) {
             prize = 'Bronze';
         } else {
-            if (rank <= 10) {
+            if (rank <= 10&& rank >=4) {
                 prize = 'Top 10 certi';
             } else {
                 prize = 'participation certificate. enjoy.';

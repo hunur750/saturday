@@ -1,64 +1,33 @@
 public class OperationsHelper {
-
-    public static Decimal Sum (List<Decimal> listOfDecimal){
-
-
-        decimal Total;
-        if(!listOfDecimal.isEmpty()){
-            Total=0;
-            
-            for( Decimal eachNum: listOfDecimal){
-                Total+=eachNum;
-
-                }
-                 }else{
-            system.debug('Please provide values to do the operation');
+    public decimal largestOutOfTwoNumbers(Decimal d1, Decimal d2) {
+        decimal returnMax;
+        if(d1 >= d2){
+            returnMax = d1;
+        } else {
+            returnMax = d2;
         }
-        return Total;
-     }
+        return returnMax;
+    }
 
-     public static Decimal average (List<Decimal> averageOfDecimal){
-        decimal avarage1;
-        Decimal total;
-        if(!averageOfDecimal.isEmpty()){
-            total=0;
-            
-            for(Decimal eachNum:averageOfDecimal){
+    public decimal smallestOutOfThreeNumbers(Decimal d1, Decimal d2, Decimal d3){
+        //FIRST WAY
+        Decimal d1d2Min = math.min(d1, d2);
+        Decimal d1d2d3Min = math.min(d1d2Min, d3);
+        return d1d2d3Min;
+    }
 
-                total+=eachNum;
-
+    public integer sumOfPositiveInteger(integer n){
+        integer sum;
+        if(n < 0){
+            system.debug('We are NOT calculating the sum of negative number. So, be positive, pass positive number.');
+        } else {
+            sum = 0;
+            for (Integer i = 0; i <= n; i++) {
+                sum += i;
             }
-            avarage1= total/ averageOfDecimal.size();
-        }else{
-            system.debug('Please provide values to do the operation');
-
         }
-        return avarage1;
-
-
-     }
-
-     public static Decimal highest(List<Decimal> highestDecimal){
-        Decimal biggerNum;
-        if(!highestDecimal.isEmpty()){
-
-            biggerNum=highestDecimal[0];
-            for( Decimal eachNum1:highestDecimal){
-
-
-                if(eachNum1>biggerNum){
-                    biggerNum=eachNum1;
-                }
-            System.debug('liste elemani '+eachNum1+ 'en buyuk deger '+biggerNum);
-
-
-            }
-        }else{
-            System.debug('Please provide values to do the operation');
-        }
-        return biggerNum;
-     }
-      
-
+        
+        return sum;
+    }
 
 }

@@ -5,6 +5,68 @@ if( trigger.isBefore && trigger.isUpdate){
 OpportunityClassHandler.printUpdateTrigger(trigger.oldMap, trigger.New);
 }
 
+//Bir opportunity nin Amount update edildiğinde bağlı olduğu accountun tüm 
+//opportunities nin Amount toplamları Accountun Description kısmına yazılsın.
+
+if(trigger.isAfter){
+    
+
+    set<id> accIds= new set<id>();
+
+if(trigger.isInsert || trigger.isUndelete){
+    for (opportunity op : trigger.new) {
+        if(op.AccountId!= null && op.Amount!=null){
+
+            accIds.add(op.AccountId);
+        }
+        
+    }
+
+}
+if(trigger.isUpdate){
+    for( Opportunity op: trigger.new){
+        if( op.AccountId!=trigger.oldMap.get(op.id).AccountId || op.Amount!=trigger.oldMap.get(op.id).Amount){
+            accIds.add(op.AccountId);
+            accIds.add(trigger.oldMap.get(op.id).AccountId);
+        }
+    }
+}
+if(trigger.isDelete){
+    for( Opportunity op:trigger.old){
+    if(op.AccountId!= null|| op.Amount!= null){
+        accIds.add(op.AccountId);
+    }
+}
+}
+if(!accIds.isEmpty()){
+
+    List<Account> accList =[ select id, name, description,( select id , name, amount from Opportunities) from account where id in: accIds];
+        for(account acc: accList){
+        Decimal total= 0;
+        if( acc.Opportunities.size()==0 ){
+            acc.Description=null;
+
+        }else {
+            for( Opportunity op: acc.Opportunities){
+                total+=op.Amount;
+            }
+            acc.Description='bu accountlara bagli opportunitieslerin amounlari toplami= ' +total;
+        
+            
+
+            }
+        }
+
+            update accList;
+}
+
+
+
+
+
+
+
+}
 
 
 

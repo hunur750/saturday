@@ -24,5 +24,13 @@ public  class SoqlDemoTurkish12 {
 
         
     }
+    public static void dmlInsertDemo_4() {
+        account acc = [select id, name from account where name = 'SoftInnovas Inc.' limit 1];
+        contact cnt = new contact();
+        cnt.LastName = 'Biden';
+        cnt.AccountId = acc.id;
+        insert cnt;
+        system.debug('contact record: ' + cnt);
+    }
 
 }

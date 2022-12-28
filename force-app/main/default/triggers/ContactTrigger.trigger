@@ -1,6 +1,31 @@
 trigger ContactTrigger on Contact (before insert, after insert, before update, after update,after delete,after undelete) {
    
-set<Id> accountIds= new set<Id>();
+
+   if(trigger.isAfter&&trigger.isUpdate){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   }
+/*set<Id> accountIds= new set<Id>();
 
 if(trigger.isAfter){
   if(trigger.isInsert){
@@ -62,7 +87,7 @@ if(trigger.isUpdate){
 
 }
 
-
+*/
 
 
 

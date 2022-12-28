@@ -1,49 +1,40 @@
-public  class Calculator {
+public class Calculator {
     public void welcomeMessage(){
-        //system.debug--> to print and to debug our code
-        // we use it whenever we want to UDDERRSTAND what our code is doing.
-        system.debug('welcome to apex calc,');
+         //system.debug --> to print, and TO DEBUG our code.
+         //we use it whenever we want to UNDERSTAND what our code is doing.
+         system.debug('welcome to apex calc');
     }
-
-    public void printMessage(string msg){
-        system.debug(msg);
-
+ 
+    public void printNewMessage(string msg){
+         //variable name of paramert is USED inside the class.
+         //OUTSIDE class, variable name of parameter DOES NOT MATTER.
+         system.debug(msg);
     }
-    //void -> return nothing
-    // if we want to return string, write string.
-    public string printAndReturnMessage(String msg2){
-        system.debug(msg2);
-        String returnStr= msg2+'...ok cool';
-        return returnStr;
-
-
+ 
+    //void -> return nothing.
+    //if we want to return string, write string.
+    public string printAndReturnMsg(string msg2){
+         system.debug(msg2);
+         string returnStr = msg2 + '...OK cool';
+         return returnStr;
     }
-    public integer add ( integer a, integer b){
-        integer sum=a+b;
-        integer sum1=a-b;
-        return sum;
-
-
-
+ 
+    public integer add(integer a, integer b){
+         integer sum = a + b;
+         return sum;
     }
+ 
     public integer add(integer a, integer b, integer c){
-    integer sum=a+b+c;
-    return sum;
+         integer sum = a + b + c;
+         return sum;
     }
-
-    public Boolean leapYearCheck(date dt){
-        integer year =dt.year();
-        boolean lp= date.isLeapYear(1974);
-        return lp;
-
-
-        
-
-}
-
-
-        private void printPrivaateMessage(){
-            system.debug('private message msg');
-            
-        }
-}
+ 
+    //1. param --> date
+    //2. return type is boolean
+    public boolean checkLeapYear(date dt){
+         integer year = dt.year(); //built in method.
+         boolean lp = date.isLeapYear(year); //isLeapYear is also a built in method of DATE class.
+         return lp;
+    }
+ 
+ }
