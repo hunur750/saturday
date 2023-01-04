@@ -1,7 +1,49 @@
-trigger OppTrigger on Opportunity (before insert, before update, after insert, after update) {
+trigger OppTrigger on Opportunity (before insert, before update, after insert, after update, after delete, after undelete) {
+    
+    Set<Id> accId= new Set<Id>();
+    
+    if(trigger.isAfter){
 
+       
 
-if( trigger.isBefore && trigger.isUpdate){
+        if(trigger.isInsert|| trigger.isUndelete){
+            for (opportunity oppEach : trigger.new) {
+                if( oppEach.AccountId!=null){
+                    accId.add(oppEach.AccountId);
+                }
+
+            }
+        }
+
+        if(trigger.isUpdate){
+            for (opportunity oppEach : trigger.new ) {
+                Opportunity oldOpp= Trigger.oldMap.get(oppEach.id);
+                if(oppEach.AccountId!=null&&(oppEach.Amount!=oldOpp.Amount|| oppEach.StageName!=oldOpp.StageName||oppEach.AccountId!=oldOpp.AccountId)){
+                    accId.add(oppEach.AccountId);
+                    accId.add(oldOpp.AccountId);
+                    
+                }
+                
+            }
+        }
+        if(trigger.isDelete){
+            for (opportunity oppEach : trigger.old) {
+                if(oppEach.AccountId!=null){
+                    accId.add(oppEach.AccountId);
+                }
+                
+            }
+        }
+    }
+        if(!accId.isEmpty()){
+            OpportunityTriggerHandler.highOpp(accId);
+            OpportunityTriggerHandler.targetAmountOpp(accId);
+            OpportunityTriggerHandler.totalAmountOpp(accId);
+        }
+
+}
+
+/*if( trigger.isBefore && trigger.isUpdate){
 OpportunityClassHandler.printUpdateTrigger(trigger.oldMap, trigger.New);
 }
 
@@ -58,15 +100,7 @@ if(!accIds.isEmpty()){
         }
 
             update accList;
-}
-
-
-
-
-
-
-
-}
+}*/
 
 
 
@@ -83,7 +117,15 @@ if(!accIds.isEmpty()){
 
 
 
-}
+
+
+
+
+
+
+
+
+
 
 
 
