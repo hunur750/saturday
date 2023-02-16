@@ -1,0 +1,1 @@
+AnimalCalloutPost.postyAnimal();

@@ -16,3 +16,9 @@ mer.drive();
 mer.driveAtMaxSpeed();
 system.debug('mer--->'+mer);
 system.debug('_______________');
+
+for ( integer i =0; i<150; i++){
+    Account a= new Account(Name='New Account'+1);
+insert a;
+system.debug(a);
+}
