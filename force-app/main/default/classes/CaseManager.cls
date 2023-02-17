@@ -64,7 +64,7 @@ global with sharing class CaseManager {
         string body= request.requestBody.toString();
         Case cs=(Case)JSON.deserialize(body, Case.class);
         update cs;
-        return  [SELECT Id, CaseNumber, Subject, Priority, Status FROM Case WHERE Id=: cs.Id limit 1 ];
+        return  [SELECT Id, CaseNumber, Subject, Priority, Status,Type  FROM Case WHERE Id=: cs.Id limit 1 ];
 
      }
 }
