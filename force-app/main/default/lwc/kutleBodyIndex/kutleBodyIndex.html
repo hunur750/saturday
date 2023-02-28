@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title="Kutle Index Hesaplama" icon-name="standard:budget">
+        <template if:false={sonuc}>
+        <div class="slds-var-m-around_medium" >
+            <lightning-input 
+            type="number"
+            value=""
+            name="kilogram"
+            placeholder="Lutfen kilonuzu giriniz" required
+            label="Kilo"
+            onchange={changeHandler}>
+        
+            </lightning-input>
+            <lightning-input
+            type="number"
+            value=""
+            name="santimetre"
+            placeholder="Lutfen boyunuzu giriniz" required
+            label="Boy"
+            onchange={changeHandler}>
+    
+            </lightning-input>
+            <lightning-button  label="Hesapla" title="Diyet programi" onclick={handlerClick} class="slds-m-left_x-small">
+
+            </lightning-button>
+            
+
+        </div>
+    </template>
+        <template if:true={sonuc}>
+            <!-- if yeni kullanimi lwc:if{sonuc}-->
+            <p>
+                <!--vucutkitle indexi-->
+                {sonuc}
+
+            </p>
+            <p>
+                <!--obez normal-->
+                {degerlendirme}
+
+
+            </p>
+            <lightning-button  label="Tekrar Hesapla" title="Diyet programi" onclick={handlerReset} class="slds-m-left_x-small">
+
+            </lightning-button>
+        </template>
+    </lightning-card>
+    
+</template>
