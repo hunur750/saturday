@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Get Object Info - Account" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+            <lightning-input
+            label="Search"
+            type="text"
+            
+            >
+        </lightning-input>
+        
+
+
+        <lightning-button
+        label="Get Object Info"
+        onclick={handleClick}
+        variant="brand-outline"
+        class="slds-var-m-top_x-small slds-align_absolute-center"
+        ></lightning-button>
+        <template if:true={objData}>
+            {body}
+        </template>
+        <template if:false={objerror}>
+
+        </template>
+
+       
+
+        </div>
+    </lightning-card>
+    
+</template>
