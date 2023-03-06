@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Get Contact Record" icon-name="standard:contact">
+        <div class="slds-var-m-around_medium">
+            <strong>{firstName} {lastName}</strong><br/>
+            <lightning-icon icon-name="custom:custom88"  size="x-small" alternative-text="Indicates approval"></lightning-icon >{email}<br/>
+            {mobile}<br/>
+            {department}<br/>
+            {title}
+            
+        </div>
+        <div>
+            <lightning-formatted-email value={email}>
+                
+            </lightning-formatted-email>
+        </div>
+    </lightning-card>
+    
+</template>

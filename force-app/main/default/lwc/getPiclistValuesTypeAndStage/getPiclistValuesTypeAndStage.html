@@ -1,0 +1,47 @@
+<template>
+    <lightning-card title="Opportunity Information" icon-name="standard:opportunity">
+        <div class="slds-var-m-around_medium">
+            <lightning-input
+                label="Opportunity Name"
+                type="text"
+                onchange={changeHandler}>
+            </lightning-input>
+
+            <lightning-combobox
+                label="Stage Name"
+                options={stageOptions}
+                onchange={changeHandler}>
+            </lightning-combobox>
+        
+            <lightning-combobox
+                label="Type"
+                options={typeOptions}
+                onchange={changeHandler}>
+             </lightning-combobox>
+             <template lcw:if={checkValues}>
+             <template lcw:if={oppName}>
+                <div class="slds-var-m-around_x-small">
+                    <em>Thanks for choosing the correct information. You have entered:</em> <br/>
+                    <strong>Opportunity Name</strong>{oppname}
+                </div>
+
+             </template>
+
+
+             <template lcw:if={selectedStage}>
+                <div class="slds-var-m-around_x-small">
+                    <strong>Selected Stage:</strong>{selectedStage}
+                </div>
+
+             </template>
+             <template lcw:if={selectedType}>
+                <div class="slds-var-m-around_x-small">
+                    <strong> Type:</strong>{selectedType}
+                </div>
+
+             </template>
+            </template>
+        </div>
+    </lightning-card>
+    
+</template>
