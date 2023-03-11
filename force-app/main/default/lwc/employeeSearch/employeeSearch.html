@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Search Employees" icon-name="action:reset_password">
+        <div class="slds-var-m-around_medium">
+
+            <lightning-input
+                label="Enter a keyword in order fetch matchind employee records"
+                type="search"
+                onkeyup={searchHandler}>
+            </lightning-input>
+            <div class="slds-var-m-top_small">
+                <template if:true={employees}>
+                    <strong> Search Results :</strong><br/>
+                </template>
+                <template for:each={employees} for:item="emp">
+                    <div key={emp.Id} class="slds-box slds-var-m-bottom_small">
+                        <strong>{emp.Name}</strong><br/>
+                        {emp.Designation__c}<br/>
+                        {emp.Email__c}
+
+                    </div>
+                </template>
+
+                <template if:true={error}>
+                    <strong> Search Error</strong> <br/>
+                    {error}
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+    
+</template>

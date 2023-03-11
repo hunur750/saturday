@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Top Annual revenue" icon-name="standard:accounts">
+        <div class="slds-var-m-around_medium">
+            <template if:true={accounts.data}>
+                <template for:each={accounts.data} for:item="acc">
+                   <table key={acc.Id} class="slds-var-m-around_x-small">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <lightning-icon>
+                                
+                                </lightning-icon>
+                                <strong>
+                                    {acc.Name}
+                                </strong><br/>
+                                <strong>${acc.AnnualRevenue}</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                   </table>
+
+                </template>
+                <lightning-button
+                label="Get Total"
+                variant="brand"
+                onclick={clickHandler}>
+            </lightning-button>
+            </template>
+            <template if:true={error}>
+                {error}
+            </template>
+        </div>
+    </lightning-card>
+    
+</template>

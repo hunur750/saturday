@@ -1,0 +1,28 @@
+
+
+
+<template>
+    <lightning-card title="Update User" icon-name="standard:user">
+        <div class="slds-var-m-around_medium">
+            <!--company ve deparment inputlari-->
+            <lightning-input
+                name="CompanyName"
+                label="Company Name"
+                onchange={changeHandler}>
+            </lightning-input>
+            <lightning-input
+                name="Department"
+                label="Department"
+                onchange={changeHandler}>
+            </lightning-input>
+        </div>
+        <div class="slds-var-m-around_medium">
+            <!--update butonu-->
+            <lightning-button
+                label="Update User"
+                variant="brand"
+                onclick={updateUser}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

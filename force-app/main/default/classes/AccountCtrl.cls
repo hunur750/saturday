@@ -8,4 +8,14 @@ public with sharing class AccountCtrl {
     ORDER BY AnnualRevenue DESC
     LIMIT 10];
   }
+
+  @AuraEnabled
+  public static  List<Account> getAccountsByIndustry( String industry){
+    return[ select Name, Type, Industry, AnnualRevenue
+    FROM Account
+    WHERE Industry=:industry
+    with SECURITY_ENFORCED
+    order by AnnualRevenue DESC];    
+
+  }
 }
