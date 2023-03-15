@@ -1,9 +1,7 @@
-import { api, LightningElement } from 'lwc';
+import { LightningElement } from 'lwc';
 
-export default class P2cNonPrimitivesData extends LightningElement {
-    @api carouselData;
-
-     contacts = [
+export default class P2cNonPrimitivesParent2 extends LightningElement {
+    contacts = [
         {
             Id: 1,
             Name: "Emrah",
@@ -20,5 +18,4 @@ export default class P2cNonPrimitivesData extends LightningElement {
             City: "Turkiye"
         }
     ];
-
 }

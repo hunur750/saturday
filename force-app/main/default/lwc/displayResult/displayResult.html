@@ -1,0 +1,13 @@
+<template>
+    <template if:true={records}>
+        <lightning-datatable
+            key-field="Id"
+            data={records}
+            columns={columns}>
+        </lightning-datatable>
+    </template>
+    <template if:true={error}>
+        <div>Search Error</div>
+        <div>{error}</div>
+    </template>
+</template>
