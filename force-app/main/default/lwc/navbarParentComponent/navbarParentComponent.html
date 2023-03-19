@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Data Ile Event" icon-name="custom:custom14">
+        <div class="slds-var-m-around_medium">
+            <h3>select your favourite player in child component and see details in parent component</h3>
+        </div>
+        <div class="flex">
+            <p>Bu bir parent companent</p>
+            <c-navbar-child-component nav-list={navList} onselection={selectedNavHandler}>
+
+            </c-navbar-child-component>
+            <template lwc:if={selectedPlayer}>
+                <div class="card" >
+                    <div>
+                        <img src={selectedPlayer.imgUrl} alt="Avatar" style="width:100%"/>
+                    </div>
+                    <div class="container">
+                        <p><strong>Player Name:</strong>{selectedPlayer.Name}</p>
+                        <p><strong>Ranking:</strong>{selectedPlayer.position}</p>
+                        <p><strong> Country:</strong>{selectedPlayer.country}</p>
+                        <p><strong>rating:</strong>{selectedPlayer.rating}</p>
+                    </div>
+
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

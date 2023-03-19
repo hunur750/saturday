@@ -1,0 +1,6 @@
+<template>
+    <p> Bu bir child component</p>
+    <template for:each={navList} for:item="list">
+        <a key={list.id} onclick={handleNavSelection}>{list.name}</a>
+    </template>
+</template>
